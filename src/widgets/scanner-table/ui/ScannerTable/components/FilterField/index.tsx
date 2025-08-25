@@ -1,26 +1,25 @@
 import React from "react";
 
-interface FilterFieldProps {
+interface FilterFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   label?: string;
   children: React.ReactNode;
+  className?: string;
 }
 
-export const FilterField: React.FC<FilterFieldProps> = ({ label, children }) => {
+export const FilterField: React.FC<FilterFieldProps> = ({ label, children, className }) => {
   return (
     <label
-      className="
-        flex flex-col
+      className={`
+        inline-flex w-auto
+        flex-col
         justify-center
-        border-r
-        border-white/10 bg-gray-950
-        px-3
-        py-2
-        align-middle
+        bg-gray-950 p-2
         last:border-r-0
-      "
+        ${className}
+      `}
     >
-      {label && <span className="text-xs text-slate-400">{label}</span>}
-      <div className="flex-1">{children}</div>
+      {label && <span className="whitespace-nowrap text-xs text-slate-400">{label}</span>}
+      <div className="w-auto">{children}</div>
     </label>
   );
 };

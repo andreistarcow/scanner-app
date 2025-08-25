@@ -10,7 +10,7 @@ import {
   MinMcapFilter,
   ChainFilter,
   MinVolumeFilter,
-  // ResetFilters,
+  ResetFilters,
 } from '@/widgets/scanner-table/ui/ScannerTable/components/filters';
 
 interface FiltersBarProps {
@@ -19,16 +19,17 @@ interface FiltersBarProps {
 
 export const FiltersBar: React.FC<FiltersBarProps> = ({ table }) => {
   return (
-    <div className="flex flex-nowrap items-center gap-3 border-y border-white/10">
-      <div className="min-w-[100px] border-white/10"><ChainFilter table={table} /></div>
-      <div className="min-w-[120px] border-white/10"><MaxAgeFilter table={table} /></div>
-      <div className="min-w-[125px] border-white/10"><MinMcapFilter table={table} /></div>
-      <div className="min-w-[120px] border-white/10"><MinVolumeFilter table={table} /></div>
-      <div className="min-w-[120px] border-white/10"><LiquidityFilter table={table} /></div>
-      <div className="min-w-[160px] border-white/10"><TopFilter table={table} /></div>
-      <div className="min-w-[120px] border-white/10"><Last24Filter table={table} /></div>
-      <div className="min-w-[190px] border-white/10"><ExcludeHoneypotsFilter table={table} /></div>
-      {/* <div className="min-w-[100px]"><ResetFilters table={table} /></div> */}
+    <div className="flex flex-nowrap items-stretch">
+      <ChainFilter table={table} />
+      <MaxAgeFilter table={table} />
+      <MinMcapFilter table={table} />
+      <MinVolumeFilter table={table} />
+      <LiquidityFilter table={table} />
+      <TopFilter table={table} />
+      <Last24Filter table={table} />
+      <ExcludeHoneypotsFilter table={table} />
+      <ResetFilters table={table} />
     </div>
   );
 };
+

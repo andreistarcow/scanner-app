@@ -44,7 +44,7 @@ export function useScannerFeed(table: TableKey) {
   const filters = useAtomValue(filtersAtom)[table];
   const error = useAtomValue(errorAtom)[table];
 
-  const { resetAll } = useResetFilters(table);
+  const { resetFilters } = useResetFilters(table);
 
   const queryIdRef = useRef<number>(0);
   const mountedRef = useRef<boolean>(true);
@@ -306,21 +306,27 @@ export function useScannerFeed(table: TableKey) {
     };
   }, [baseParams, data, setData, table]);
 
+  const resetFiltersAndRefetch = useCallback(async (): Promise<void> => {
+    const nextId = queryIdRef.current + 1;
+    queryIdRef.current = nextId;
+    setLoadingForTable(true);
+    setErrorForTable(null);
+    setDirtyForTable(true);
+    resetFilters();
+    setTimeout(() => {
+      if (queryIdRef.current !== nextId) return;
+      void loadPage(1, { expectedId: nextId, replace: true });
+    }, 0);
+  }, [resetFilters, loadPage, setDirtyForTable, setErrorForTable, setLoadingForTable]);
 
   const resetAndRefetch = useCallback(async (): Promise<void> => {
     const nextId = queryIdRef.current + 1;
     queryIdRef.current = nextId;
-
     setLoadingForTable(true);
     setErrorForTable(null);
     setDirtyForTable(true);
-
     await loadPage(1, { expectedId: nextId, replace: true });
   }, [loadPage, setDirtyForTable, setErrorForTable, setLoadingForTable]);
-
-  const resetFiltersAndRefetch = useCallback(() => {
-    resetAll();
-  }, [resetAll]);
 
   const moreRef = useRef<{ loading: boolean }>({ loading: false });
   const loadMore = useCallback(async (): Promise<void> => {
