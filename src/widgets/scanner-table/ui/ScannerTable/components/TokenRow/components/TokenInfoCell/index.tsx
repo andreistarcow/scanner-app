@@ -10,8 +10,8 @@ interface TokenInfoCellProps {
 
 const TokenInfoCellComponent: React.FC<TokenInfoCellProps> = ({ token }) => {
   return (
-    <div className="flex h-full flex-col items-start gap-1 truncate p-2 text-xs">
-      <div className="mt-1 truncate text-xs font-medium text-white">
+    <div className="flex h-full flex-col items-start gap-1 truncate px-1 py-2 text-xs">
+      <div className="truncate text-xs font-medium text-white">
         <div className="ml-0.5 flex">
           <TokenIcon token={token.tokenSymbol} />
           <div className="ml-2 mt-1">

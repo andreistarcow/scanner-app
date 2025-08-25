@@ -19,7 +19,7 @@ interface FiltersBarProps {
 
 export const FiltersBar: React.FC<FiltersBarProps> = ({ table }) => {
   return (
-    <div className="flex flex-nowrap items-stretch">
+    <div className="flex flex-nowrap items-stretch px-2 py-1">
       <ChainFilter table={table} />
       <MaxAgeFilter table={table} />
       <MinMcapFilter table={table} />
