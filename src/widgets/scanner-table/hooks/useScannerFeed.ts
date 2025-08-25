@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useCallback, useState } from 'react';
 import { useAtom, useSetAtom, useAtomValue } from 'jotai';
 
 import { httpGet } from '@/shared/api/client';
-import { wsBus } from '@/shared/lib/ws';
+import { wsBus } from '@/shared/api/ws';
 import {
   tableDataAtom,
   tablePageAtom,

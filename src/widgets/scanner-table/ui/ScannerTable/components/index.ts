@@ -5,6 +5,7 @@ export * from './TableCell';
 export * from './FilterField';
 export * from './FilterButton';
 export * from './filters';
-export * from './Loading';
+export * from './TableSpinner';
 export * from './VirtualRows';
 export * from './TableContainer';
+export * from './TableSpinner';
