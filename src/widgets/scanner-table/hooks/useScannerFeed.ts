@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useMemo, useRef, useCallback, useState } from 'react';
 import { useAtom, useSetAtom, useAtomValue } from 'jotai';
 
@@ -11,19 +10,16 @@ import {
   errorAtom,
   tableDirtyAtom,
 } from '@/widgets/scanner-table/model/atoms';
-import { filtersAtom, sortersAtom, TableKey, TokenData } from '@/widgets/scanner-table/model';
+import { filtersAtom, sortersAtom, TableKey, TokenData, LoadOpts } from '@/widgets/scanner-table/model';
 import { rowToToken } from '@/shared/model/utils';
 import { pairKey, mergeUniqueByPair, uniqScannerRows, calcMarketCap } from '@/widgets/scanner-table/model/utils';
 import { ScannerResult, TickEventPayload, PairStatsMsgData, ScannerPairsEventPayload, IncomingWebSocketMessage , GetScannerResultParams , ScannerApiResponse } from '@/shared/api/test-task-types';
+import { parseErrorMessage } from '@/shared/api/utils';
 
 import { DirtyAtom, DataAtom, LoadingAtom, ErrorAtom, PageAtom } from "../model/atoms/types";
 
 import { useResetFilters } from './useResetFilters';
-type LoadOpts = { expectedId?: number; replace?: boolean };
 
-/**
- * Helper: subscribe to per-pair live updates (price + stats) for a list of tokens.
- */
 function subscribeForTokens(tokens: TokenData[]) {
   for (const t of tokens) {
     wsBus.send({ event: 'subscribe-pair', data: { pair: t.pairAddress, token: t.tokenAddress, chain: t.chain } });
@@ -31,27 +27,12 @@ function subscribeForTokens(tokens: TokenData[]) {
   }
 }
 
-/**
- * Helper: unsubscribe from a list of tokens/pairs to stop receiving live events.
- */
 function unsubscribeForTokens(tokens: TokenData[]) {
   for (const t of tokens) {
     wsBus.send({ event: 'unsubscribe-pair', data: { pair: t.pairAddress, token: t.tokenAddress, chain: t.chain } });
     wsBus.send({ event: 'unsubscribe-pair-stats', data: { pair: t.pairAddress, token: t.tokenAddress, chain: t.chain } });
   }
 }
-
-/**
- * useScannerFeed
- * ---------------
- * Single source of truth for:
- *  - Fetching paginated scanner data over HTTP (/scanner)
- *  - Subscribing to live updates over WebSocket (prices, stats)
- *  - Reconciling incoming data into your Jotai atoms
- *  - Handling filter/sorter changes and pagination
- *
- * All types are intentionally `any` for maximum permissiveness in integration/debug phases.
- */
 export function useScannerFeed(table: TableKey) {
   const [dirty, setDirty] = useAtom<DirtyAtom>(tableDirtyAtom);
   const [data, setData] = useAtom<DataAtom>(tableDataAtom);
@@ -113,11 +94,6 @@ export function useScannerFeed(table: TableKey) {
     [setData, table]
   );
 
-  /**
-   * Core HTTP loader
-   * - Uses queryIdRef to ignore stale responses
-   * - Accepts optional opts to force "replace" behavior when page==1 (e.g., new filter/sort context)
-   */
   const loadPage = useCallback(
     async (pageNum: number, opts?: LoadOpts): Promise<void> => {
       const expectedId = opts?.expectedId ?? queryIdRef.current;
@@ -127,7 +103,7 @@ export function useScannerFeed(table: TableKey) {
       try {
         const res = await httpGet<ScannerApiResponse>('/scanner', { ...baseParams, page: pageNum });
 
-        // Stale guard: if a newer request took over or component unmounted, drop this result.
+        // stale guard: if a newer request took over or component unmounted, drop this result.
         if (!mountedRef.current || expectedId !== queryIdRef.current) return;
 
         if (res.ok) {
@@ -136,7 +112,6 @@ export function useScannerFeed(table: TableKey) {
 
           setDirtyForTable(false);
 
-          // Replace page 1 (fresh context) vs append/merge subsequent pages
           if (pageNum === 1 && opts?.replace) {
             setDataForTableReplace(tokens);
             setPageForTable(1);
@@ -154,12 +129,11 @@ export function useScannerFeed(table: TableKey) {
         } else {
           setErrorForTable(res?.error?.message ?? 'Unknown error');
         }
-      } catch (e: any) {
-        // Network/runtime error
+      } catch (e: unknown) {
         if (!mountedRef.current || expectedId !== queryIdRef.current) return;
-        setErrorForTable(e?.message ?? 'Network error');
+        setErrorForTable(parseErrorMessage(e));
       } finally {
-        // Only flip loading off if still current
+        // flip loading off if still current
         const isStale = !mountedRef.current || expectedId !== queryIdRef.current;
         if (!isStale) setLoadingForTable(false);
       }
@@ -176,7 +150,6 @@ export function useScannerFeed(table: TableKey) {
   );
 
   /**
-   * Kickoff: whenever baseParams change (filters/sorters), we:
    *  - increment queryIdRef to invalidate prior inflight requests
    *  - mark table as dirty/loading
    *  - load page 1 with replace=true
@@ -194,24 +167,21 @@ export function useScannerFeed(table: TableKey) {
     void loadPage(1, { expectedId: nextId, replace: true });
 
     return () => {
-      // mark as unmounted so late promises don’t write into state
       mountedRef.current = false;
     };
   }, [baseParams, loadPage, setDirtyForTable, setErrorForTable, setLoadingForTable]);
 
   /**
-   * WebSocket lifecycle for current filter context (baseParams):
    *  - subscribe to "scanner-filter" room to receive incremental list updates
    *  - subscribe to per-pair channels for price ticks + stats
    *  - reconcile incoming events into the table slice
-   *  - on cleanup, unsubscribe only if this effect still matches the current queryIdRef
    */
   useEffect(() => {
     if (!mountedRef.current) return;
 
     const localId = queryIdRef.current;
 
-    /** Merge/replace the visible set when scanner emits a new list snapshot */
+    // merge/replace the visible set when scanner emits a new list snapshot
     const handleScannerPairs = (payload: ScannerPairsEventPayload) => {
       const rows: ScannerResult[] = uniqScannerRows(payload?.results?.pairs ?? []);
       const incoming: TokenData[] = rows.map(rowToToken);
@@ -220,7 +190,7 @@ export function useScannerFeed(table: TableKey) {
         const prev: TokenData[] = state[table] ?? [];
         const prevMap = new Map(prev.map((t) => [pairKey(t), t]));
 
-        const reconciled: TokenData[] = incoming.map((n: any) => {
+        const reconciled: TokenData[] = incoming.map((n: TokenData) => {
           const k = pairKey(n);
           const p = prevMap.get(k);
           return p ? { ...p, ...n } : n;
@@ -232,7 +202,7 @@ export function useScannerFeed(table: TableKey) {
       });
     };
 
-    /** Update price + derived mcap on ticks without recreating the whole list */
+    // update price + derived mcap on ticks without recreating the whole list
     const handleTick = (payload: TickEventPayload) => {
       const pairPayload = payload?.pair;
       const swaps = payload?.swaps ?? [];
@@ -258,7 +228,7 @@ export function useScannerFeed(table: TableKey) {
       });
     };
 
-    /** Patch structural stats (audit flags, socials, liquidity, migration progress) */
+    // patch structural stats (audit flags, socials, liquidity, migration progress)
     const handlePairStats = (payload: PairStatsMsgData) => {
       const stats = payload;
       const pairAddress = stats?.pair?.pairAddress;
@@ -304,7 +274,7 @@ export function useScannerFeed(table: TableKey) {
 
     const unsubscribe = wsBus.subscribe((message: IncomingWebSocketMessage) => {
       if (!message || typeof message !== 'object' || !('event' in message)) return;
-      if (localId !== queryIdRef.current) return; // stale context => ignore
+      if (localId !== queryIdRef.current) return;
 
       switch (message.event) {
         case 'scanner-pairs':
@@ -323,7 +293,7 @@ export function useScannerFeed(table: TableKey) {
 
     wsBus.send({ event: 'scanner-filter', data: { ...baseParams } });
 
-    // Also subscribe to currently visible tokens so we get ticks/stats immediately
+    // subscribe to currently visible tokens so we get ticks/stats immediately
     const currentTokens: TokenData[] = data[table] ?? [];
     subscribeForTokens(currentTokens);
 
@@ -347,7 +317,6 @@ export function useScannerFeed(table: TableKey) {
 
     await loadPage(1, { expectedId: nextId, replace: true });
   }, [loadPage, setDirtyForTable, setErrorForTable, setLoadingForTable]);
-
 
   const resetFiltersAndRefetch = useCallback(() => {
     resetAll();
