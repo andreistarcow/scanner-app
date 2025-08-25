@@ -89,9 +89,19 @@ const TableHeaderComponent: React.FC<ScannerTableHeaderProps> = ({ table, onSort
         active={tableSorters.rankBy === 'age'}
         onClick={onSort}
       />
-      <HeaderButton label="Buys/Sells" />
-      <HeaderButton label="Liquidity" />
-      <HeaderButton label="Audit" /> {/* ✅ new column */}
+      <HeaderButton
+        sorter='txns'
+        label="Buys/Sells"
+        active={tableSorters.rankBy === 'txns'}
+        onClick={onSort}
+      />
+      <HeaderButton
+        sorter='liquidity'
+        label="Liquidity"
+        active={tableSorters.rankBy === 'liquidity'}
+        onClick={onSort}
+      />
+      <HeaderButton label="Audit" />
     </div>
   );
 };

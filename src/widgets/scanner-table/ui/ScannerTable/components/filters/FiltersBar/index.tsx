@@ -27,7 +27,7 @@ export const FiltersBar: React.FC<FiltersBarProps> = ({ table }) => {
       <div className="min-w-[120px] border-r border-white/10"><LiquidityFilter table={table} /></div>
       <div className="min-w-[160px] border-r border-white/10"><TopFilter table={table} /></div>
       <div className="min-w-[120px] border-r border-white/10"><Last24Filter table={table} /></div>
-      <div className="min-w-[200px] border-r border-white/10"><ExcludeHoneypotsFilter table={table} /></div>
+      <div className="min-w-[190px] border-r border-white/10"><ExcludeHoneypotsFilter table={table} /></div>
       {/* <div className="min-w-[100px]"><ResetFilters table={table} /></div> */}
     </div>
   );

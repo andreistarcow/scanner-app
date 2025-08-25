@@ -30,10 +30,13 @@ const TableHeaderButtonComponent: React.FC<HeaderButtonProps> = ({
     <button
       type="button"
       onClick={handleClick}
-      className={`flex h-full items-center gap-1 truncate px-3 py-2 text-xs text-slate-400 ${sorter ? `transition hover:text-slate-200` : 'cursor-default'} ${className ?? ''}`}
+      className={`group flex h-full items-center gap-1 truncate border-t border-white/10 px-3 py-2 text-xs text-slate-400
+        ${active ? 'bg-white/10 text-white' : ''}
+        ${sorter ? 'transition hover:bg-white/10 hover:text-slate-200' : 'cursor-default'}
+        ${className ?? ''}`}
     >
       <span>{label}</span>
-      <Arrow dir={orderBy} active={active} />
+      {sorter && <Arrow dir={orderBy} active={active} />}
     </button>
   );
 };
