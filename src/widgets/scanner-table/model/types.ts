@@ -4,6 +4,7 @@ export type TableKey = 'trending' | 'new'
 
 export type TopFilter = 'volume' | 'transactions' | null;
 export type TimeRange = '5m' | '1h' | '6h' | '24h' | null;
+export type LoadOpts = { expectedId?: number; replace?: boolean };
 
 export interface Filters {
   chain: 'ETH' | 'SOL' | 'BASE' | 'BSC' | 'ALL';
