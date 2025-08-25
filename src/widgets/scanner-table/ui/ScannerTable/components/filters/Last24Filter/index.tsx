@@ -4,7 +4,7 @@ import { useAtom } from 'jotai';
 import { Select } from '@shared/ui';
 import { sortersAtom, type TableKey } from '@widgets/scanner-table/model';
 import { FilterField , useScannerFeed } from '@widgets/scanner-table';
-import { TimeFrame } from '@/shared/api/test-task-types';
+import { TimeFrame } from '@shared/api/test-task-types';
 
 const timeOptions = [
   { title: 'Any', value: 'any' },
