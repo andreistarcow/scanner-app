@@ -1,4 +1,3 @@
-// components/VirtualRows.tsx
 import React from 'react';
 import type { Virtualizer } from '@tanstack/react-virtual';
 

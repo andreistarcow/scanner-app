@@ -1,4 +1,3 @@
-// ScannerTable.tsx
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useVirtualizer, elementScroll } from '@tanstack/react-virtual';
 import { useAtom, useAtomValue } from 'jotai';
