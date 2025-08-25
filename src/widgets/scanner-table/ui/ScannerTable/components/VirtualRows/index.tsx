@@ -21,6 +21,7 @@ export function VirtualRowsComponent<T>({
 }: VirtualRowsProps<T>) {
   const totalSize = virtualizer.getTotalSize();
   const virtualItems = virtualizer.getVirtualItems();
+
   return (
     <div style={{ height: totalSize, position: 'relative', width: '100%' }}>
       {virtualItems.map((vi) => {
@@ -40,4 +41,5 @@ export function VirtualRowsComponent<T>({
     </div>
   );
 }
+
 export const VirtualRows = VirtualRowsComponent;

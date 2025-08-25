@@ -7,16 +7,17 @@ import { NETWORK_ICONS } from "../constants";
 
 interface ChainIconProps {
   chain: Chains;
+  className?: string;
 }
 
 export const ChainIcon: React.FC<ChainIconProps> = ({
-  chain,
+  chain, className
 }) => {
   const src = NETWORK_ICONS[chain];
 
   if (!src) return null;
 
   return (
-    <ImgIcon src={src} alt={chain} />
+    <ImgIcon className={className} src={src} alt={chain} />
   );
 };

@@ -39,7 +39,7 @@ export const Last24Filter: React.FC<TimeRangeFilterProps> = ({ table }) => {
   
 
   return (
-    <FilterField label="Last">
+    <FilterField label="Last day">
       <Select options={timeOptions} value={uiValue as string} onChange={handleChange} />
     </FilterField>
   );

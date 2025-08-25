@@ -1,4 +1,3 @@
-// src/widgets/scanner-table/hooks/useResetFilters.ts
 import { useCallback } from "react";
 import { useSetAtom } from "jotai";
 

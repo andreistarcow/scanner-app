@@ -7,7 +7,7 @@ interface TableCellProps {
 
 const TableCellComponent: React.FC<TableCellProps> = ({ children, className }) => {
   return (
-    <div className={`flex h-full items-center gap-1 truncate px-3 py-5 text-xs ${className}`}>
+    <div className={`flex h-full items-center gap-1 truncate px-3 py-2 text-xs ${className}`}>
       {children}
     </div>
   );

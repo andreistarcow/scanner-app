@@ -42,7 +42,7 @@ export const MinMcapFilter: React.FC<MinMcapFilterProps> = ({ table }) => {
   }, [setFilters, table]);
 
   return (
-    <FilterField label="Min Market Cap">
+    <FilterField label="Min MCap">
       <Select options={minMcapOptions} value={uiValue} onChange={handleChange} />
     </FilterField>
   );

@@ -8,3 +8,5 @@ export * from './LiquidityFilter';
 export * from './TopFilter';
 export * from './Last24Filter';
 export * from './ResetFilters';
+export * from './ChainButtonFilter';
+

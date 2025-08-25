@@ -11,6 +11,7 @@ import {
   ChainFilter,
   MinVolumeFilter,
   ResetFilters,
+  ChainButtonFilter
 } from '@/widgets/scanner-table/ui/ScannerTable/components/filters';
 
 interface FiltersBarProps {
@@ -19,8 +20,9 @@ interface FiltersBarProps {
 
 export const FiltersBar: React.FC<FiltersBarProps> = ({ table }) => {
   return (
-    <div className="flex flex-nowrap items-stretch">
-      <ChainFilter table={table} />
+    <div className="flex flex-nowrap items-stretch p-2">
+      {/* <ChainFilter table={table} /> */}
+      <ChainButtonFilter table={table} />
       <MaxAgeFilter table={table} />
       <MinMcapFilter table={table} />
       <MinVolumeFilter table={table} />

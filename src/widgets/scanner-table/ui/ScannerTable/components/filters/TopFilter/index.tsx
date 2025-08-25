@@ -13,8 +13,8 @@ interface TopFilterProps {
 
 const topOptions = [
   { title: "Any", value: "any" },
-  { title: "By volume", value: "volume" },
-  { title: "By transactions", value: "transactions" },
+  { title: "by volume", value: "volume" },
+  { title: "by transactions", value: "transactions" },
 ];
 
 export const TopFilter: React.FC<TopFilterProps> = ({ table }) => {

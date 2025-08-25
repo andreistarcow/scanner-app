@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useVirtualizer, elementScroll } from '@tanstack/react-virtual';
-import { useAtom , useAtomValue } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 
 import { SerdeRankBy } from '@/shared/api/test-task-types';
 import { useScannerFeed, useFilters } from '@/widgets/scanner-table/hooks';
@@ -17,7 +17,7 @@ export interface ScannerTableProps {
   rankBy: 'volume' | 'age';
 }
 
-const ROW_ESTIMATE = 81.5;
+const ROW_ESTIMATE = 62;
 
 export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
   const list = useFilters(table) as TokenData[];
@@ -72,7 +72,6 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
     }
   }, [lastItem?.index, list.length, loading, loadMore, lastItem]);
 
-
   useEffect(() => {
     if (!loading && list.length > 0) {
       const total = rowVirtualizer.getTotalSize();
@@ -110,7 +109,8 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
             renderRow={(token) => <TokenRow token={token} />}
           />
           <TableSpinner loading={loading} />
-        </div>)}
+        </div>
+      )}
     </TableContainer>
   );
 };

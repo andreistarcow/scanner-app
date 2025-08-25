@@ -10,10 +10,10 @@ export const FilterField: React.FC<FilterFieldProps> = ({ label, children, class
   return (
     <label
       className={`
-        inline-flex w-auto
+        mr-1.5 inline-flex
+        w-auto
         flex-col
-        justify-center
-        bg-gray-950 p-2
+        justify-center bg-gray-950
         last:border-r-0
         ${className}
       `}
