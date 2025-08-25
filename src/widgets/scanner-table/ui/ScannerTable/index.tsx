@@ -100,7 +100,7 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
       ) : (
         <div
           ref={scrollParentRef}
-          className="relative min-w-[1400px] flex-1 overflow-y-scroll bg-gray-950"
+          className="relative min-w-[1700px] flex-1 overflow-y-scroll bg-gray-950"
         >
           <TableHeader table={table} onSort={toggleSort} />
           <VirtualRows<TokenData>
