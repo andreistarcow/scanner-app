@@ -1,4 +1,4 @@
-import { Chains } from "@/entities/scanner/model/types";
+import { Chains } from "@/shared/model/types";
 
 export const NETWORK_ICONS: Record<Chains, string> = {
   [Chains.SOL]: 'https://app.dexcelerate.com/graphics/raster/solana.jpg',
