@@ -64,11 +64,10 @@ export function useScannerFeed(table: TableKey) {
 
       const response = await httpGet<ScannerApiResponse>('/scanner', { ...baseParams, page: pageNum });
 
-      // if (localId !== queryIdRef.current) {
-      //   console.log(' SEET');
-      //   setLoading((ls: Loading): Loading => ({ ...ls, [table]: false }));
-      //   return;
-      // }
+      if (localId !== queryIdRef.current) {
+        setLoading((ls: Loading): Loading => ({ ...ls, [table]: false }));
+        return;
+      }
 
       if (response.ok) {
         const rows: ScannerResult[] = uniqScannerRows(response.data.pairs ?? []);

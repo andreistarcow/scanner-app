@@ -33,8 +33,6 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
   const [sorters, setSorters] = useAtom(sortersAtom);
   const tableSorters = sorters[table];
 
-  if (table === 'trending') 
-    console.log({ loading });
   const toggleSort = useCallback(
     (key: SerdeRankBy) => {
       const next =
@@ -93,7 +91,7 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
 
   return (
     <TableContainer title={title} table={table}>
-      {isError && !loading ? (
+      {isError ? (
         <ErrorMessage
           message="Failed to fetch table data"
           buttonText="Retry"
