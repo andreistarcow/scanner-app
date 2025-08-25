@@ -12,8 +12,8 @@ export interface ScannerTableProps {
 
 export const TableContainer: React.FC<ScannerTableProps> = ({ title, table, children }) => {
   return (
-    <div className="flex min-h-[94vh] flex-col overflow-y-scroll border border-white/10 bg-gray-950">
-      <div className="flex items-center justify-between border-b border-slate-800 px-3 py-2">
+    <div className="flex min-h-[94vh] w-full flex-col overflow-y-scroll border border-white/10 bg-gray-950">
+      <div className="flex items-center justify-between border-slate-800 px-3 py-2">
         <h3 className="font-semibold">{title}</h3>
       </div>
       <FiltersBar table={table} />

@@ -19,15 +19,15 @@ interface FiltersBarProps {
 
 export const FiltersBar: React.FC<FiltersBarProps> = ({ table }) => {
   return (
-    <div className="flex w-full flex-nowrap items-center gap-3 overflow-x-auto">
+    <div className="flex flex-nowrap items-center gap-3">
       <div className="min-w-[100px]"><ChainFilter table={table} /></div>
-      <div className="min-w-[130px]"><MaxAgeFilter table={table} /></div>
-      <div className="min-w-[130px]"><MinMcapFilter table={table} /></div>
-      <div className="min-w-[130px]"><MinVolumeFilter table={table} /></div>
-      <div className="min-w-[130px]"><LiquidityFilter table={table} /></div>
-      <div className="min-w-[130px]"><TopFilter table={table} /></div>
-      <div className="min-w-[120px]"><Last24Filter table={table} /></div>
-      <div className="min-w-[180px]"><ExcludeHoneypotsFilter table={table} /></div>
+      <div className="min-w-[100px]"><MaxAgeFilter table={table} /></div>
+      <div className="min-w-[125px]"><MinMcapFilter table={table} /></div>
+      <div className="min-w-[100px]"><MinVolumeFilter table={table} /></div>
+      <div className="min-w-[100px]"><LiquidityFilter table={table} /></div>
+      <div className="min-w-[140px]"><TopFilter table={table} /></div>
+      <div className="min-w-[100px]"><Last24Filter table={table} /></div>
+      <div className="min-w-[200px]"><ExcludeHoneypotsFilter table={table} /></div>
       {/* <div className="min-w-[100px]"><ResetFilters table={table} /></div> */}
     </div>
   );
