@@ -1,4 +1,5 @@
 export const API_BASE = 'http://localhost:1337/api';
+import { API_URL } from "@shared/config";
 
 export type HttpResult<T> = { ok: true; data: T } | { ok: false; error: Error }
 
@@ -9,7 +10,7 @@ export async function httpGet<T>(path: string, params?: Record<string, any>): Pr
         .filter(([, v]) => v !== undefined && v !== null && v !== '')
         .map(([k, v]) => [k, String(v)])
     ).toString() : '';
-    const res = await fetch(`${API_BASE}${path}${qs}`);
+    const res = await fetch(`${API_URL}${path}${qs}`);
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     const json = await res.json();
     return { ok: true, data: json as T };

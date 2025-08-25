@@ -1,8 +1,10 @@
+import { WS_URL } from "@shared/config";
+
 type Listener = (msg: any) => void
 
 class WSBus {
   private ws?: WebSocket;
-  private url = 'ws://localhost:1337/ws';
+  private url = WS_URL; // 'ws://localhost:1337/ws';
   private queue: any[] = [];
   private listeners = new Set<Listener>();
   private reconnectTimer?: number;
