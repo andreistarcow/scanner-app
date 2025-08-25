@@ -22,7 +22,8 @@ const TokenRowComponent: React.FC<TokenRowProps> = ({ token, style, className })
         grid
         ${GRID}
         items-stretch 
-        divide-x divide-white/10 border-b border-white/10 px-3 ${className}`}
+        divide-x divide-white/10 border-b border-white/5 px-3
+        transition-colors hover:bg-white/5 ${className}`}
     >
       <TokenInfoCell token={token} />
       <DexRouterCell router={token.exchange} chain={token.chain} />

@@ -8,6 +8,16 @@ export const CHAIN_EXPLORERS = {
 };
 
 export const DEX_REGISTRY = {
+  'Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB': {
+    name: 'Meteora AG',
+    logo: 'https://dd.dexscreener.com/ds-data/dexes/meteora.png',
+    chain: Chains.SOL
+  },
+  'HEAVENoP2qxoeuF8Dj2oT1GHEnu49U5mJYkdeC8BAX2o': {
+    name: 'Heaven DEX',
+    logo: 'https://dd.dexscreener.com/ds-data/dexes/heaven.png',
+    chain: Chains.SOL,
+  },
   'CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK': {
     name: 'Raydium CPMM',
     logo: 'https://dd.dexscreener.com/ds-data/dexes/raydium.png',
@@ -99,12 +109,12 @@ export const DEX_REGISTRY = {
     chain: Chains.SOL
   },
   'dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN': {
-    name: 'Meteora',
+    name: 'Meteora AG',
     logo: 'https://dd.dexscreener.com/ds-data/dexes/meteora.png',
     chain: Chains.SOL
   },
   'LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo': {
-    name: 'Meteora',
+    name: 'Meteora AG',
     logo: 'https://dd.dexscreener.com/ds-data/dexes/meteora.png',
     chain: Chains.SOL
   }
