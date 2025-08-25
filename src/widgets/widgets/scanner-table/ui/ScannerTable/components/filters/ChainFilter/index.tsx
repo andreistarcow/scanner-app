@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo } from "react";
 import { useAtom } from "jotai";
 
-import { NETWORK_ICONS, Select } from "@shared/ui";
-import { Chains } from "@entities/scanner/model/types";
-import { SupportedChainName } from "@shared/api/test-task-types";
-import { filtersAtom, type TableKey } from "@widgets/scanner-table/model";
-import { FilterField } from '@widgets/scanner-table';
+import { NETWORK_ICONS, Select } from "@/shared/ui";
+import { Chains } from "@/entities/scanner/model/types";
+import { SupportedChainName } from "@/shared/api/test-task-types";
+import { filtersAtom, type TableKey } from "@/widgets/scanner-table/model";
+import { FilterField } from '@/widgets/scanner-table';
 
 interface ChainFilterProps {
   table: TableKey;

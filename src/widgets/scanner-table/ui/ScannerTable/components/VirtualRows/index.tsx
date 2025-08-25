@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Virtualizer } from '@tanstack/react-virtual';
 
-import { TableKey } from '@widgets/scanner-table/model';
+import { TableKey } from '@/widgets/scanner-table/model';
 
 type ElementType = HTMLElement | Element;
 

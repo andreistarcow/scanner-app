@@ -1,5 +1,5 @@
 export const API_BASE = 'http://localhost:1337/api';
-// import { API_BASE } from "@widgets/shared/api/client";
+// import { API_BASE } from "@/widgets/shared/api/client";
 export type HttpResult<T> = { ok: true; data: T } | { ok: false; error: Error }
 
 export async function httpGet<T>(path: string, params?: Record<string, any>): Promise<HttpResult<T>> {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TableCell } from "@widgets/scanner-table";
+import { TableCell } from "@/widgets/scanner-table";
 
 interface AgeCellProps {
   createdAt?: Date;

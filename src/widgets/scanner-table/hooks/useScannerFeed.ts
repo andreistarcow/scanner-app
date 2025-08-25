@@ -1,26 +1,26 @@
 import { useEffect, useMemo, useRef, useCallback, useState } from 'react';
 import { useAtom, useSetAtom, useAtomValue } from 'jotai';
 
-import { httpGet } from '@shared/api/client';
+import { httpGet } from '@/shared/api/client';
 import {
   type GetScannerResultParams,
   type ScannerApiResponse,
   type IncomingWebSocketMessage,
   type ScannerResult,
-} from '@shared/api/test-task-types';
-import { wsBus } from '@shared/lib/ws';
+} from '@/shared/api/test-task-types';
+import { wsBus } from '@/shared/lib/ws';
 import {
   tableDataAtom,
   tablePageAtom,
   loadingAtom,
   errorAtom,
   tableDirtyAtom,
-} from '@widgets/scanner-table/model/atoms';
-import { filtersAtom, sortersAtom, TableKey } from '@widgets/scanner-table/model';
-import { rowToToken } from '@entities/scanner/model/utils';
-import type { TokenData } from '@widgets/scanner-table/model';
-import { Data, Page, Loading, Error } from '@widgets/scanner-table/model/types';
-import { pairKey, mergeUniqueByPair, uniqScannerRows, calcMarketCap } from '@widgets/scanner-table/model/utils';
+} from '@/widgets/scanner-table/model/atoms';
+import { filtersAtom, sortersAtom, TableKey } from '@/widgets/scanner-table/model';
+import { rowToToken } from '@/entities/scanner/model/utils';
+import type { TokenData } from '@/widgets/scanner-table/model';
+import { Data, Page, Loading, Error } from '@/widgets/scanner-table/model/types';
+import { pairKey, mergeUniqueByPair, uniqScannerRows, calcMarketCap } from '@/widgets/scanner-table/model/utils';
 
 import { useResetFilters } from './useResetFilters';
 

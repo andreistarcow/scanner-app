@@ -1,6 +1,6 @@
 
-import type { TokenData } from "@widgets/scanner-table/model";
-import { TableKey } from "@widgets/scanner-table/model";
+import type { TokenData } from "@/widgets/scanner-table/model";
+import { TableKey } from "@/widgets/scanner-table/model";
 
 export type Data = Record<TableKey, TokenData[]>
 export type Page = Record<TableKey, number>

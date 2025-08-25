@@ -1,8 +1,8 @@
 import React from "react";
 
-import { StatusIcon } from "@shared/ui";
-import { TableCell } from "@widgets/scanner-table";
-import { Audit } from "@widgets/scanner-table/model";
+import { StatusIcon } from "@/shared/ui";
+import { TableCell } from "@/widgets/scanner-table";
+import { Audit } from "@/widgets/scanner-table/model";
 
 interface LiquidityCellProps {
   audit?: Audit;

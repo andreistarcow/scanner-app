@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Percentage } from "@shared/ui";
-import { TableCell } from "@widgets/scanner-table";
+import { Percentage } from "@/shared/ui";
+import { TableCell } from "@/widgets/scanner-table";
 
 interface PriceChangesProps {
   period: '5m' | '1h' | '6h' | '24h'

@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 
-import { type TableKey } from "@widgets/scanner-table/model";
+import { type TableKey } from "@/widgets/scanner-table/model";
 
 import { TokenData } from "../types";
 

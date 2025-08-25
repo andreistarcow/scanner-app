@@ -1,4 +1,4 @@
-// import { WS_URL } from "@shared/config";
+// import { WS_URL } from "@/shared/config";
 
 type Listener = (msg: any) => void
 

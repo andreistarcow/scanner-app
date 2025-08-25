@@ -1,9 +1,9 @@
 import React, { memo, CSSProperties } from 'react';
 import { useAtom } from 'jotai';
 
-import { sortersAtom, TableKey } from '@widgets/scanner-table/model';
-import { SerdeRankBy } from '@shared/api/test-task-types';
-import { TableHeaderButton as HeaderButton } from '@widgets/scanner-table';
+import { sortersAtom, TableKey } from '@/widgets/scanner-table/model';
+import { SerdeRankBy } from '@/shared/api/test-task-types';
+import { TableHeaderButton as HeaderButton } from '@/widgets/scanner-table';
 
 import { GRID } from '../../grid';
 
@@ -26,7 +26,9 @@ const TableHeaderComponent: React.FC<ScannerTableHeaderProps> = ({ table, onSort
         ${GRID}
         items-stretch 
         divide-x
-        divide-gray-700 border-y border-white/10 px-3`}
+        divide-gray-700
+        border-b
+        border-white/10 px-3`}
     >
       <HeaderButton
         sorter="trending"
@@ -87,9 +89,19 @@ const TableHeaderComponent: React.FC<ScannerTableHeaderProps> = ({ table, onSort
         active={tableSorters.rankBy === 'age'}
         onClick={onSort}
       />
-      <HeaderButton label="Buys/Sells" />
-      <HeaderButton label="Liquidity" />
-      <HeaderButton label="Audit" /> {/* ✅ new column */}
+      <HeaderButton
+        sorter='txns'
+        label="Buys/Sells"
+        active={tableSorters.rankBy === 'txns'}
+        onClick={onSort}
+      />
+      <HeaderButton
+        sorter='liquidity'
+        label="Liquidity"
+        active={tableSorters.rankBy === 'liquidity'}
+        onClick={onSort}
+      />
+      <HeaderButton label="Audit" />
     </div>
   );
 };

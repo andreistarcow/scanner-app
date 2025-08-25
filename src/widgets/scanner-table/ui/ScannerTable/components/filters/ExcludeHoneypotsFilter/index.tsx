@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { useAtom } from "jotai";
 
-import { filtersAtom, type TableKey } from "@widgets/scanner-table/model";
-import { FilterField } from '@widgets/scanner-table';
-import { Indicator } from "@shared/ui";
+import { filtersAtom, type TableKey } from "@/widgets/scanner-table/model";
+import { FilterField } from '@/widgets/scanner-table';
+import { Indicator } from "@/shared/ui";
 
 export const ExcludeHoneypotsFilter: React.FC<{ table: TableKey }> = ({ table }) => {
   const [filters, setFilters] = useAtom(filtersAtom);

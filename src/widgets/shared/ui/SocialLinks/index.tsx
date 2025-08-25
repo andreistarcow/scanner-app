@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { SocialLink } from '@shared/ui';
-import { Socials } from '@widgets/scanner-table/model';
+import { SocialLink } from '@/shared/ui';
+import { Socials } from '@/widgets/scanner-table/model';
 
 interface SocialsLinksProps {
   socials: Socials;

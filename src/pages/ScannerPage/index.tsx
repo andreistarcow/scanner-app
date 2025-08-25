@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ScannerTable } from '@widgets/scanner-table/ui';
+import { ScannerTable } from '@/widgets/scanner-table/ui';
 
 export const ScannerPage: React.FC = () => {
   return (

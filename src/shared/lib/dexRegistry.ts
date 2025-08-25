@@ -1,4 +1,4 @@
-import { Chains } from "@entities/scanner/model/types";
+import { Chains } from "@/entities/scanner/model/types";
 
 export const CHAIN_EXPLORERS = {
   [Chains.SOL]: 'https://explorer.solana.com/address/',

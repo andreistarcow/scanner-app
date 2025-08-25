@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useAtomValue } from "jotai";
 
-import { filtersAtom, tableDataAtom, type TableKey } from "@widgets/scanner-table/model";
+import { filtersAtom, tableDataAtom, type TableKey } from "@/widgets/scanner-table/model";
 
 export function useFilters(table: TableKey) {
   const filters = useAtomValue(filtersAtom)[table];

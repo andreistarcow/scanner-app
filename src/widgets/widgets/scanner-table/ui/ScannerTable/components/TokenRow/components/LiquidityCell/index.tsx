@@ -1,9 +1,9 @@
 import React from "react";
 
-import { formatValue as fmt } from "@shared/lib/formatValue";
-import { Liquidity } from "@widgets/scanner-table/model";
-import { Percentage } from "@shared/ui";
-import { TableCell } from "@widgets/scanner-table";
+import { formatValue as fmt } from "@/shared/lib/formatValue";
+import { Liquidity } from "@/widgets/scanner-table/model";
+import { Percentage } from "@/shared/ui";
+import { TableCell } from "@/widgets/scanner-table";
 
 interface LiquidityCellProps {
   liquidity?: Liquidity;

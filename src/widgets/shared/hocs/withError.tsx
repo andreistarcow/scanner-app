@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAtomValue } from 'jotai';
 
-import { errorAtom } from '@widgets/scanner-table/model';
-import type { TableKey } from '@widgets/scanner-table/model';
+import { errorAtom } from '@/widgets/scanner-table/model';
+import type { TableKey } from '@/widgets/scanner-table/model';
 
 import { ErrorMessage } from '../ui';
 

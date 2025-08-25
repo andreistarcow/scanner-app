@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import { useVirtualizer, elementScroll } from '@tanstack/react-virtual';
 import { useAtom , useAtomValue } from 'jotai';
 
-import { SerdeRankBy } from '@shared/api/test-task-types';
-import { useScannerFeed, useFilters } from '@widgets/scanner-table/hooks';
-import { sortersAtom, errorAtom, TableKey } from '@widgets/scanner-table/model';
-import type { TokenData } from '@widgets/scanner-table/model';
-import { ErrorMessage, NoDataMessage } from '@shared/ui';
+import { SerdeRankBy } from '@/shared/api/test-task-types';
+import { useScannerFeed, useFilters } from '@/widgets/scanner-table/hooks';
+import { sortersAtom, errorAtom, TableKey } from '@/widgets/scanner-table/model';
+import type { TokenData } from '@/widgets/scanner-table/model';
+import { ErrorMessage, NoDataMessage } from '@/shared/ui';
 
 import { TableHeader, TokenRow, TableLoading, TableContainer } from './components';
 import { VirtualRows } from './components/VirtualRows';
@@ -91,27 +91,25 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
 
   return (
     <TableContainer title={title} table={table}>
-      {isError && !loading ? (
-        <ErrorMessage
-          message="Failed to fetch table data"
-          buttonText="Retry"
-          onButtonClick={() => resetAndRefetch()}
+      <div
+        ref={scrollParentRef}
+        className="relative min-w-[1700px] flex-1 overflow-y-scroll bg-gray-950"
+      >
+        <TableHeader table={table} onSort={toggleSort} />
+        <VirtualRows<TokenData>
+          table={table}
+          virtualizer={rowVirtualizer}
+          items={list}
+          renderRow={(token) => <TokenRow token={token} />}
         />
-      ) : (
-        <div
-          ref={scrollParentRef}
-          className="relative min-w-[1700px] flex-1 overflow-y-scroll bg-gray-950"
-        >
-          <TableHeader table={table} onSort={toggleSort} />
-          <VirtualRows<TokenData>
-            table={table}
-            virtualizer={rowVirtualizer}
-            items={list}
-            renderRow={(token) => <TokenRow token={token} />}
-          />
-          <TableLoading loading={loading} />
-        </div>
-      )}
+        <TableLoading loading={loading} />
+        {isError && !loading && (
+          <ErrorMessage
+            message="Failed to fetch table data"
+            buttonText="Retry"
+            onButtonClick={() => resetAndRefetch()}
+          />)}
+      </div>
     </TableContainer>
   );
 };

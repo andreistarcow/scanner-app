@@ -1,5 +1,5 @@
-import { SerdeRankBy, OrderBy, TimeFrame } from '@shared/api/test-task-types';
-import type { SupportedChainName as Chain } from '@shared/api/test-task-types';
+import { SerdeRankBy, OrderBy, TimeFrame } from '@/shared/api/test-task-types';
+import type { SupportedChainName as Chain } from '@/shared/api/test-task-types';
 export type TableKey = 'trending' | 'new'
 
 export type TopFilter = 'volume' | 'transactions' | null;

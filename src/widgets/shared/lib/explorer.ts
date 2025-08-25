@@ -1,4 +1,4 @@
-import { Chains } from "@entities/scanner/model/types";
+import { Chains } from "@/entities/scanner/model/types";
 
 import { CHAIN_EXPLORERS } from "./dexRegistry";
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { formatValue } from "@shared/lib/formatValue";
+import { formatValue } from "@/shared/lib/formatValue";
 
 interface ValueCellProps {
   value: number;

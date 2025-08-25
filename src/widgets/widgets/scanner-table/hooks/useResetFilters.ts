@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useAtom } from "jotai";
 
-import { filtersAtom, sortersAtom, type TableKey } from "@widgets/scanner-table/model";
-import { sortersInitialState, filtersInitialState } from "@widgets/scanner-table/model";
+import { filtersAtom, sortersAtom, type TableKey } from "@/widgets/scanner-table/model";
+import { sortersInitialState, filtersInitialState } from "@/widgets/scanner-table/model";
 
 export function useResetFilters(table: TableKey) {
   const [, setFilters] = useAtom(filtersAtom);

@@ -1,4 +1,4 @@
-import { Chains } from "@entities/scanner/model/types";
+import { Chains } from "@/entities/scanner/model/types";
 
 export const CHAIN_EXPLORERS = {
   [Chains.SOL]: 'https://explorer.solana.com/address/',
@@ -8,6 +8,11 @@ export const CHAIN_EXPLORERS = {
 };
 
 export const DEX_REGISTRY = {
+  '0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45': {
+    name: 'Uniswap V2',
+    logo: 'https://dd.dexscreener.com/ds-data/dexes/uniswap.png',
+    chain: Chains.ETH
+  },
   '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8': {
     name: 'Raydium Pool V4',
     logo: 'https://dd.dexscreener.com/ds-data/dexes/raydium.png',
