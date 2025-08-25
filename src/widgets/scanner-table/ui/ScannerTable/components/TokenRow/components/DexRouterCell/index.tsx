@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import { DEX_REGISTRY } from "@/shared/lib/dexRegistry";
 import { DexIcon , UnknownAssetIcon } from "@/shared/ui";
 import { TableCell } from "@/widgets/scanner-table";
-import { Chains } from "@/entities/scanner/model/types";
+import { Chains } from "@/shared/model/types";
 import { chainExplorerLink } from "@/shared/lib/explorer";
 import { SupportedChainName } from "@/shared/api/test-task-types";
 

@@ -17,7 +17,7 @@ import {
   tableDirtyAtom,
 } from '@/widgets/scanner-table/model/atoms';
 import { filtersAtom, sortersAtom, TableKey } from '@/widgets/scanner-table/model';
-import { rowToToken } from '@/entities/scanner/model/utils';
+import { rowToToken } from '@/shared/model/utils';
 import type { TokenData } from '@/widgets/scanner-table/model';
 import { Data, Page, Loading, Error } from '@/widgets/scanner-table/model/types';
 import { pairKey, mergeUniqueByPair, uniqScannerRows, calcMarketCap } from '@/widgets/scanner-table/model/utils';

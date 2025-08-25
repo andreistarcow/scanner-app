@@ -33,6 +33,7 @@ export const SocialLink: React.FC<SocialLinkProps> = ({
       className="
         cursor-pointer
         rounded-full 
+        border-white/20
         bg-gray-800/70 
         p-0.5
         text-white/50
