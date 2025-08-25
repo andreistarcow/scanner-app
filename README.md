@@ -1,40 +1,38 @@
-## Scanner (React + Vite)
+## ![](./src/assets/favicon.svg) Dexcelerate Scanner Testcase App
 
-Scanner app test case. Built with virtualized lists, sorting, and filters. Built with React 18, Vite, TypeScript, TailwindCSS, Jotai, and @tanstack/react-virtual.
+[Demo](https://scanner-7jhuh5xz9-andreistarcows-projects.vercel.app/)
+(Install no-CORA browser extension)
 
-### Issues
-- 
-### Requirements
-- Node.js 18+
-- npm (or pnpm/yarn)
+Running the development version doesn’t require CORS-unblocking browser extensions, because Vite handles proxying.
+See [vite.config.mts](./vite.config.mts) 
 
 
 ### Installation
 ```bash
-npm install
+  npm install
 ```
 
 ### Development
 ```bash
-npm run dev
+  npm run dev
+
 ```
-Then open `http://localhost:5173`.
+Then open `http://localhost:1337`.
 
 ### Build
 ```bash
-npm run build
+  npm run build
 ```
 
 ### Preview (after build)
 ```bash
-npm run preview
+  npm run preview
 ```
 
 ### Lint
 ```bash
-npm run lint
-# or auto-fix
-npm run lint:fix
+  npm run lint
+  npm run lint:fix
 ```
 
 ### API endpoint setup
