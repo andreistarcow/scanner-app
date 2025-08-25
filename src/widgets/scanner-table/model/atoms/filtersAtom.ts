@@ -2,7 +2,7 @@ import { atom } from 'jotai';
 
 import type { TableFilters } from '../types';
 
-export const filtersInitialState: TableFilters = {
+export const filtersDefaults: TableFilters = {
   trending: {
     liquidity: 0,
     chain: 'ALL',
@@ -25,5 +25,5 @@ export const filtersInitialState: TableFilters = {
   }
 };
 
-export const filtersAtom = atom<TableFilters>(filtersInitialState);
+export const filtersAtom = atom<TableFilters>({ ...filtersDefaults });
 

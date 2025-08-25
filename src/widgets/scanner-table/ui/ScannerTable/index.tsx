@@ -91,7 +91,7 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
 
   return (
     <TableContainer title={title} table={table}>
-      {isError ? (
+      {isError && !list.length ? (
         <ErrorMessage
           message="Failed to fetch table data"
           buttonText="Retry"

@@ -2,7 +2,7 @@ import { atom } from 'jotai';
 
 import { SortersAtom } from '../types';
 
-export const sortersInitialState: SortersAtom = {
+export const sortersDefaults: SortersAtom = {
   trending: {
     orderBy: 'asc',
     rankBy: 'age',
@@ -15,5 +15,5 @@ export const sortersInitialState: SortersAtom = {
   }
 };
 
-export const sortersAtom = atom<SortersAtom>(sortersInitialState);
+export const sortersAtom = atom<SortersAtom>({ ...sortersDefaults });
 

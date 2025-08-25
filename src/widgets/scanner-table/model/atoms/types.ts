@@ -12,3 +12,5 @@ export type DirtyAtom = Record<TableKey, boolean>;
 export type PageAtom = Record<TableKey, number>;
 export type LoadingAtom = Record<TableKey, boolean>;
 export type ErrorAtom = Record<TableKey, string | null>;
+
+

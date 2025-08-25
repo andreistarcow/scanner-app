@@ -5,7 +5,8 @@ import { NETWORK_ICONS, Select } from "@/shared/ui";
 import { Chains } from "@/shared/model/types";
 import { SupportedChainName } from "@/shared/api/test-task-types";
 import { filtersAtom, type TableKey } from "@/widgets/scanner-table/model";
-import { FilterField } from '@/widgets/scanner-table';
+
+import { FilterField } from "../../FilterField";
 
 interface ChainFilterProps {
   table: TableKey;
