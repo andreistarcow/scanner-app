@@ -9,7 +9,7 @@ export const filtersInitialState: TableFilters = {
     minVolume: 0,
     maxAgeHours: null,
     minMcap: 0,
-    excludeHoneypot: true,
+    excludeHoneypot: false,
     top: null,
     timeRange: null
   },
@@ -19,7 +19,7 @@ export const filtersInitialState: TableFilters = {
     minVolume: 0,
     maxAgeHours: null,
     minMcap: 0,
-    excludeHoneypot: true,
+    excludeHoneypot: false,
     top: null,
     timeRange: null
   }

@@ -22,7 +22,7 @@ const AgeCellComponent: React.FC<AgeCellProps> = ({ createdAt }) => {
 
   return (
     <TableCell>
-      {formatted}
+      <span className="font-xs font-mono">{formatted}</span>
     </TableCell>
   );
 };

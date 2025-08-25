@@ -5,3 +5,4 @@ export * from './ChainIcon';
 export * from './UnknownAssetIcon';
 export * from './ErrorIcon';
 export * from './SuccessIcon';
+export * from './ArrowDownIcon';

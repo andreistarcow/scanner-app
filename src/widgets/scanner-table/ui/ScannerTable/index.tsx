@@ -102,7 +102,7 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
           ref={scrollParentRef}
           className="relative min-w-[1700px] flex-1 overflow-y-scroll bg-gray-950"
         >
-          <TableHeader table={table} onSort={toggleSort} />
+          {!!list.length && <TableHeader table={table} onSort={toggleSort} />}
           <VirtualRows<TokenData>
             table={table}
             virtualizer={rowVirtualizer}

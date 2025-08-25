@@ -14,9 +14,10 @@ const PercentageComponent: React.FC<PercentageProps> = ({ value, showPlus = true
   return (
     <span
       className={clsx(
+        'font-mono',
         'whitespace-nowrap',
-        isPositive && 'text-up',
-        isNegative && 'text-down',
+        isPositive && 'text-up text-green-500',
+        isNegative && 'text-down text-red-600',
         isZero && 'text-default' 
       )}
     >
