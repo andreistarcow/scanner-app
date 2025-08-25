@@ -33,6 +33,7 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
   const [sorters, setSorters] = useAtom(sortersAtom);
   const tableSorters = sorters[table];
 
+  if (table === 'trending') console.log(loading);
   const toggleSort = useCallback(
     (key: SerdeRankBy) => {
       const next =

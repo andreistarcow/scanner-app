@@ -1,1 +1,1 @@
-export const GRID = 'grid-cols-[2.2fr,1.85fr,1fr,1.25fr,1fr,1fr,1fr,1fr,1fr,minmax(70px,0.48fr),1.2fr,minmax(150px,1.2fr),2.5fr]';
+export const GRID = 'grid-cols-[2.2fr,1.65fr,1fr,1.2fr,1.1fr,1.1fr,1.1fr,1.1fr,1fr,minmax(70px,0.48fr),1.2fr,minmax(150px,1.2fr),2.5fr]';
