@@ -5,7 +5,7 @@ import { DexIcon , UnknownAssetIcon } from "@shared/ui";
 import { TableCell } from "@widgets/scanner-table";
 import { Chains } from "@entities/scanner/model/types";
 import { chainExplorerLink } from "@shared/lib/explorer";
-import { SupportedChainName } from "@/shared/api/test-task-types";
+import { SupportedChainName } from "@shared/api/test-task-types";
 
 interface DexRouterProps {
   router?: string;
