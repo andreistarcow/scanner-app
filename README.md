@@ -1,6 +1,6 @@
 ## ![](./src/assets/favicon.svg) Dexcelerate Scanner Testcase App
 
-[Demo](https://scanner-7jhuh5xz9-andreistarcows-projects.vercel.app/)
+[Demo](https://scanner-app-git-develop-andreistarcows-projects.vercel.app/)
 (Install no-CORA browser extension)
 
 Running the development version doesn’t require CORS-unblocking browser extensions, because Vite handles proxying.
