@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import type { OrderBy } from '@shared/api/test-task-types';
+import type { OrderBy } from '@/shared/api/test-task-types';
 
 const ArrowComponent: React.FC<{ dir?: OrderBy; active?: boolean }> = ({ dir, active }) => {
   if (!active) return null;

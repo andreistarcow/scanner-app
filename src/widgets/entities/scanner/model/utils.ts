@@ -1,6 +1,6 @@
-import type { ScannerResult } from '@shared/api/test-task-types';
-import { chainIdToName } from '@shared/api/test-task-types';
-import type { TokenData } from '@widgets/scanner-table/model';
+import type { ScannerResult } from '@/shared/api/test-task-types';
+import { chainIdToName } from '@/shared/api/test-task-types';
+import type { TokenData } from '@/widgets/scanner-table/model';
 
 function pickNumber(x: unknown, def = 0): number {
   const n = typeof x === 'string' ? parseFloat(x) : typeof x === 'number' ? x : def;

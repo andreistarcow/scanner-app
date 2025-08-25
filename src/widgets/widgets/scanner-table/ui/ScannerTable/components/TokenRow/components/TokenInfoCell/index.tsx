@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Chains } from "@entities/scanner/model/types";
-import { TokenData } from "@widgets/scanner-table/model";
-import { ChainIcon, TokenIcon, SocialsLinks } from "@shared/ui";
+import { Chains } from "@/entities/scanner/model/types";
+import { TokenData } from "@/widgets/scanner-table/model";
+import { ChainIcon, TokenIcon, SocialsLinks } from "@/shared/ui";
 
 interface TokenInfoCellProps {
   token: TokenData;

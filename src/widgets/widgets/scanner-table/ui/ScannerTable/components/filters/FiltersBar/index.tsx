@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { type TableKey } from "@widgets/scanner-table/model";
+import { type TableKey } from "@/widgets/scanner-table/model";
 import {
   MaxAgeFilter,
   Last24Filter,
@@ -11,7 +11,7 @@ import {
   ChainFilter,
   MinVolumeFilter,
   // ResetFilters,
-} from '@widgets/scanner-table/ui/ScannerTable/components/filters';
+} from '@/widgets/scanner-table/ui/ScannerTable/components/filters';
 
 interface FiltersBarProps {
   table: TableKey;

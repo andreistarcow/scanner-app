@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ErrorIcon } from '@shared/ui';
+import { ErrorIcon } from '@/shared/ui';
 
 interface ErrorMessageProps {
   message: string;

@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import { useVirtualizer, elementScroll } from '@tanstack/react-virtual';
 import { useAtom , useAtomValue } from 'jotai';
 
-import { SerdeRankBy } from '@shared/api/test-task-types';
-import { useScannerFeed, useFilters } from '@widgets/scanner-table/hooks';
-import { sortersAtom, errorAtom, TableKey } from '@widgets/scanner-table/model';
-import type { TokenData } from '@widgets/scanner-table/model';
-import { ErrorMessage, NoDataMessage } from '@shared/ui';
+import { SerdeRankBy } from '@/shared/api/test-task-types';
+import { useScannerFeed, useFilters } from '@/widgets/scanner-table/hooks';
+import { sortersAtom, errorAtom, TableKey } from '@/widgets/scanner-table/model';
+import type { TokenData } from '@/widgets/scanner-table/model';
+import { ErrorMessage, NoDataMessage } from '@/shared/ui';
 
 import { TableHeader, TokenRow, TableLoading, TableContainer } from './components';
 import { VirtualRows } from './components/VirtualRows';

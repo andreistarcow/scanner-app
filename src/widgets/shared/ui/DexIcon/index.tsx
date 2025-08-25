@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
-import { ImgIcon } from '@shared/ui';
-import { DEX_REGISTRY } from "@shared/lib/dexRegistry";
+import { ImgIcon } from '@/shared/ui';
+import { DEX_REGISTRY } from "@/shared/lib/dexRegistry";
 
 interface ChainIconProps extends React.HTMLAttributes<HTMLDivElement>  {
   dex?: string;

@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo } from "react";
 import { useAtom } from "jotai";
 
-import { Select } from "@shared/ui";
-import { filtersAtom, type TableKey } from "@widgets/scanner-table/model";
-import { FilterField } from "@widgets/scanner-table";
+import { Select } from "@/shared/ui";
+import { filtersAtom, type TableKey } from "@/widgets/scanner-table/model";
+import { FilterField } from "@/widgets/scanner-table";
 
 type TopMode = "volume" | "transactions" | "any";
 

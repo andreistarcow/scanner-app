@@ -1,8 +1,8 @@
 import React from "react";
 
-import { formatCount } from "@widgets/scanner-table/model/utils";
-import { Transactions } from "@widgets/scanner-table/model";
-import { TableCell } from "@widgets/scanner-table";
+import { formatCount } from "@/widgets/scanner-table/model/utils";
+import { Transactions } from "@/widgets/scanner-table/model";
+import { TableCell } from "@/widgets/scanner-table";
 
 interface TransactionsCellProps {
   transactions: Transactions;

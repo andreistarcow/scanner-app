@@ -1,9 +1,9 @@
 import React, { memo, CSSProperties } from 'react';
 import { useAtom } from 'jotai';
 
-import { sortersAtom, TableKey } from '@widgets/scanner-table/model';
-import { SerdeRankBy } from '@shared/api/test-task-types';
-import { TableHeaderButton as HeaderButton } from '@widgets/scanner-table';
+import { sortersAtom, TableKey } from '@/widgets/scanner-table/model';
+import { SerdeRankBy } from '@/shared/api/test-task-types';
+import { TableHeaderButton as HeaderButton } from '@/widgets/scanner-table';
 
 import { GRID } from '../../grid';
 

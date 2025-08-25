@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 
-import type { OrderBy, SerdeRankBy } from '@shared/api/test-task-types';
-import { Arrow } from '@shared/ui';
+import type { OrderBy, SerdeRankBy } from '@/shared/api/test-task-types';
+import { Arrow } from '@/shared/ui';
 
 interface HeaderButtonProps {
   label: string;

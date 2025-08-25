@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TableKey } from "@widgets/scanner-table/model";
+import { TableKey } from "@/widgets/scanner-table/model";
 
 import { FiltersBar } from "../filters";
 

@@ -1,7 +1,7 @@
 import { useAtomValue } from 'jotai';
 
-import type { TableKey } from '@widgets/scanner-table/model';
-import { errorAtom, tablePageAtom, loadingAtom } from '@widgets/scanner-table/model';
+import type { TableKey } from '@/widgets/scanner-table/model';
+import { errorAtom, tablePageAtom, loadingAtom } from '@/widgets/scanner-table/model';
 
 export function useTableState(table: TableKey) {
   const pageMap = useAtomValue(tablePageAtom);

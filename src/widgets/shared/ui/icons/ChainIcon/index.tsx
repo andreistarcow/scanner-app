@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Chains } from "@entities/scanner/model/types";
-import { ImgIcon } from '@shared/ui';
+import { Chains } from "@/entities/scanner/model/types";
+import { ImgIcon } from '@/shared/ui';
 
 import { NETWORK_ICONS } from "../constants";
 
