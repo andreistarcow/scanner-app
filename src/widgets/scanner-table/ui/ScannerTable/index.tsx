@@ -8,7 +8,7 @@ import { sortersAtom, errorAtom, TableKey } from '@/widgets/scanner-table/model'
 import type { TokenData } from '@/widgets/scanner-table/model';
 import { ErrorMessage, NoDataMessage } from '@/shared/ui';
 
-import { TableHeader, TokenRow, TableLoading, TableContainer } from './components';
+import { TableHeader, TokenRow, TableSpinner, TableContainer } from './components';
 import { VirtualRows } from './components/VirtualRows';
 
 export interface ScannerTableProps {
@@ -109,7 +109,7 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
             items={list}
             renderRow={(token) => <TokenRow token={token} />}
           />
-          <TableLoading loading={loading} />
+          <TableSpinner loading={loading} />
         </div>)}
     </TableContainer>
   );

@@ -35,7 +35,7 @@ export const Select: React.FC<SelectProps> = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="mt-1 w-auto max-w-72 text-nowrap rounded-[3px] border border-white/20
-                   bg-white/10 px-2 py-1.5 text-xs
+                   bg-white/5 px-2 py-1.5 text-xs
                    text-white transition
                    hover:border-white/30 hover:bg-white/30">
         {options.map((opt) => (
