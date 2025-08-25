@@ -33,6 +33,7 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
   const [sorters, setSorters] = useAtom(sortersAtom);
   const tableSorters = sorters[table];
 
+  if (table === 'trending') console.log(loading);
   const toggleSort = useCallback(
     (key: SerdeRankBy) => {
       const next =
@@ -91,25 +92,26 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
 
   return (
     <TableContainer title={title} table={table}>
-      <div
-        ref={scrollParentRef}
-        className="relative min-w-[1700px] flex-1 overflow-y-scroll bg-gray-950"
-      >
-        <TableHeader table={table} onSort={toggleSort} />
-        <VirtualRows<TokenData>
-          table={table}
-          virtualizer={rowVirtualizer}
-          items={list}
-          renderRow={(token) => <TokenRow token={token} />}
+      {isError && !loading ? (
+        <ErrorMessage
+          message="Failed to fetch table data"
+          buttonText="Retry"
+          onButtonClick={() => resetAndRefetch()}
         />
-        <TableLoading loading={loading} />
-        {isError && !loading && (
-          <ErrorMessage
-            message="Failed to fetch table data"
-            buttonText="Retry"
-            onButtonClick={() => resetAndRefetch()}
-          />)}
-      </div>
+      ) : (
+        <div
+          ref={scrollParentRef}
+          className="relative min-w-[1700px] flex-1 overflow-y-scroll bg-gray-950"
+        >
+          <TableHeader table={table} onSort={toggleSort} />
+          <VirtualRows<TokenData>
+            table={table}
+            virtualizer={rowVirtualizer}
+            items={list}
+            renderRow={(token) => <TokenRow token={token} />}
+          />
+          <TableLoading loading={loading} />
+        </div>)}
     </TableContainer>
   );
 };
