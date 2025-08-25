@@ -7,6 +7,9 @@
 .scrollbar-thin::-webkit-scrollbar { width: 8px; height: 8px; }
 .scrollbar-thin::-webkit-scrollbar-thumb { background-color: #334155; border-radius: 8px; }
 
+body {
+  background-color: rgba(3, 7, 18, 1);
+}
 html, body, #root {
   height: 100%;
 }

@@ -64,10 +64,11 @@ export function useScannerFeed(table: TableKey) {
 
       const response = await httpGet<ScannerApiResponse>('/scanner', { ...baseParams, page: pageNum });
 
-      if (localId !== queryIdRef.current) {
-        setLoading((ls: Loading): Loading => ({ ...ls, [table]: false }));
-        return;
-      }
+      // if (localId !== queryIdRef.current) {
+      //   console.log(' SEET');
+      //   setLoading((ls: Loading): Loading => ({ ...ls, [table]: false }));
+      //   return;
+      // }
 
       if (response.ok) {
         const rows: ScannerResult[] = uniqScannerRows(response.data.pairs ?? []);
@@ -85,6 +86,7 @@ export function useScannerFeed(table: TableKey) {
           };
         });
 
+        setLoading((ls: Loading): Loading => ({ ...ls, [table]: false }));
         setError((errorState: Error): Error => ({ ...errorState, [table]: false }));
 
         if (pageNum === 1 && opts?.replace) {
@@ -97,7 +99,6 @@ export function useScannerFeed(table: TableKey) {
         setError((errorState: Error): Error => ({ ...errorState, [table]: response.error.message }));
       }
 
-      setLoading((ls: Loading): Loading => ({ ...ls, [table]: false }));
     },
     [baseParams, setData, setError, setLoading, setPage, table, setDirty]
   );
