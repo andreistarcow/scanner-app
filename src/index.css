@@ -10,6 +10,29 @@
 body {
   background-color: rgba(3, 7, 18, 1);
 }
+
 html, body, #root {
   height: 100%;
+}
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 2px; /* for horizontal scrollbars */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px; /* fully rounded */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin; /* makes it thinner */
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  }
 }
