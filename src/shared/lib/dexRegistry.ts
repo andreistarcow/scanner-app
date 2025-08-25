@@ -8,6 +8,21 @@ export const CHAIN_EXPLORERS = {
 };
 
 export const DEX_REGISTRY = {
+  '0xB971eF87ede563556b2ED4b1C0b0019111Dd85d2': {
+    name: 'Uniswap V3',
+    logo: 'https://dd.dexscreener.com/ds-data/dexes/uniswap.png',
+    chain: Chains.BSC
+  },
+  '0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45': {
+    name: 'Uniswap V2',
+    logo: 'https://dd.dexscreener.com/ds-data/dexes/uniswap.png',
+    chain: Chains.ETH
+  },
+  'CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C': {
+    name: 'Raydium CPMM',
+    logo: 'https://dd.dexscreener.com/ds-data/dexes/raydium.png',
+    chain: Chains.SOL
+  },
   '675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8': {
     name: 'Raydium Pool V4',
     logo: 'https://dd.dexscreener.com/ds-data/dexes/raydium.png',

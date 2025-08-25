@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useVirtualizer, elementScroll } from '@tanstack/react-virtual';
-import { useAtom } from 'jotai';
+import { useAtom , useAtomValue } from 'jotai';
 
 import { SerdeRankBy } from '@shared/api/test-task-types';
 import { useScannerFeed, useFilters } from '@widgets/scanner-table/hooks';
-import { sortersAtom, TableKey } from '@widgets/scanner-table/model';
+import { sortersAtom, errorAtom, TableKey } from '@widgets/scanner-table/model';
 import type { TokenData } from '@widgets/scanner-table/model';
 import { ErrorMessage, NoDataMessage } from '@shared/ui';
 
@@ -22,7 +22,6 @@ const ROW_ESTIMATE = 81.5;
 export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
   const list = useFilters(table) as TokenData[];
   const {
-    error,
     loading,
     isDirty,
     loadMore,
@@ -30,6 +29,7 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
     replaceSeq,
   } = useScannerFeed(table);
 
+  const isError = useAtomValue(errorAtom)[table];
   const [sorters, setSorters] = useAtom(sortersAtom);
   const tableSorters = sorters[table];
 
@@ -61,13 +61,17 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
     scrollToFn: elementScroll,
   });
 
+  const virtualItems = rowVirtualizer.getVirtualItems();
+  const lastItem = virtualItems[virtualItems.length - 1];
+
   useEffect(() => {
-    const items = rowVirtualizer.getVirtualItems();
-    const last = items[items.length - 1];
-    if (!last) return;
-    const isCloseToEnd = last.index >= list.length - 5;
-    if (isCloseToEnd && !loading) loadMore();
-  }, [list.length, loading, loadMore, rowVirtualizer]);
+    if (!lastItem) return;
+    const nearEnd = lastItem.index >= Math.max(0, list.length - 5);
+    if (nearEnd && !loading) {
+      loadMore();
+    }
+  }, [lastItem?.index, list.length, loading, loadMore, lastItem]);
+
 
   useEffect(() => {
     if (!loading && list.length > 0) {
@@ -87,7 +91,7 @@ export const ScannerTable: React.FC<ScannerTableProps> = ({ title, table }) => {
 
   return (
     <TableContainer title={title} table={table}>
-      {error ? (
+      {isError && !loading ? (
         <ErrorMessage
           message="Failed to fetch table data"
           buttonText="Retry"
