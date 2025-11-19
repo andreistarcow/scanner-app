@@ -1,4 +1,4 @@
-## ![](./src/assets/favicon.svg) Dexcelerate API Scanner
+## ![](./src/assets/favicon.svg) Dexcelerate Token Scanner
 
 [Demo](https://scanner-app-git-develop-andreistarcows-projects.vercel.app/)
 (Install no-CORS browser extension)
