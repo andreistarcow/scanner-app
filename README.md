@@ -6,3 +6,11 @@
 Running the development version doesn’t require CORS-unblocking browser extensions, because Vite handles proxying.
 See [vite.config.mts](./vite.config.mts) 
 
+### Run
+
+```
+  git clone https://github.com/andreistarcow/scanner-app/
+  cd scanner-app
+  npm i
+  npm run dev
+```
